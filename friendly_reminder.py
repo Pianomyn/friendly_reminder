@@ -2,7 +2,7 @@ import json
 import sys
 import time
 
-from selenium import webdriver
+from selenium.webdriver import ActionChains, Chrome
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -29,7 +29,7 @@ def get_config(config_path: str = "./config.json") -> dict:
         raise IOError(f"{config_path} does not exist")
 
 
-def login_to_facebook(driver: webdriver.Chrome, config: dict) -> None:
+def login_to_facebook(driver: Chrome, config: dict) -> None:
     username = config["username"]
     password = config["password"]
 
@@ -44,7 +44,7 @@ def login_to_facebook(driver: webdriver.Chrome, config: dict) -> None:
     time.sleep(TIMEOUT_SHORT)
 
 
-def go_to_chat(driver: webdriver.Chrome, config: dict) -> None:
+def go_to_chat(driver: Chrome, config: dict) -> None:
     chat_url = config["chat_url"]
     driver.get(chat_url)
     time.sleep(TIMEOUT_SHORT)
@@ -52,30 +52,36 @@ def go_to_chat(driver: webdriver.Chrome, config: dict) -> None:
 
 def get_friendly_reminder(
     reminder_file_path: str = "./reminder.txt",
-):
+) -> list[str]:
     with open(reminder_file_path) as fp:
-        return fp.read().replace("\n", "")
+        return [line.strip("\n") for line in fp]
 
 
 def send_friendly_reminders(
-    driver: webdriver.Chrome,
+    driver: Chrome,
     n: int,
     reminder_file_path: str = "./reminder.txt",
-):
+) -> None:
     reminder = get_friendly_reminder(reminder_file_path)
     chat_box = driver.find_element(
         By.CSS_SELECTOR, "div[aria-label='Message']"
     )
     for _ in range(n):
-        chat_box.send_keys(reminder)
-        chat_box.send_keys(Keys.ENTER)
-        """
-        driver.find_element(
-            By.CSS_SELECTOR, "div[aria-label='Press enter to send']"
-        ).click()
-        """
-        # time.sleep(TIMEOUT_SHORT)
-        # Might not need to sleep, depending on PC specs.
+        for index, line in enumerate(reminder):
+            chat_box.send_keys(line)
+            if index == len(reminder) - 1:
+                chat_box.send_keys(Keys.ENTER)
+                """
+                driver.find_element(
+                    By.CSS_SELECTOR, "div[aria-label='Press enter to send']"
+                ).click()
+                """
+            else:
+                ActionChains(driver).key_down(Keys.SHIFT).key_down(
+                    Keys.ENTER
+                ).perform()
+            # Might not need to sleep, depending on PC specs.
+            time.sleep(TIMEOUT_SHORT)
 
 
 if __name__ == "__main__":
@@ -85,7 +91,7 @@ if __name__ == "__main__":
 
     chrome_options = create_options()
 
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = Chrome(options=chrome_options)
 
     config = get_config()
 

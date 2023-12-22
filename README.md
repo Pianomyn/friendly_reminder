@@ -22,12 +22,13 @@ This config.json should be in the format
 {
     "username": ""
     "password": ""
-    "char_url": ""
+    "chat_url": ""
 }
 ```
 2. Create a reminder.txt file with the reminder you want to send.
-3. Run python3 [n]
+3. Run `python3 friendly_reminder.py [n]`
     - Where n is the number of reminders to send
 
 # TODO
 - Standardise setup with docker images?
+- Sequence actions in Selenium programatically.
