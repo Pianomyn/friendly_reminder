@@ -1,5 +1,5 @@
 # Description
-A Selenium script that will ~spam~ send one (or more than one) "friendly reminder(s)" to a Facebook group.
+A Selenium script that will ~spam~ send one (or more than one) "friendly reminder(s)" to a Facebook group chat.
 
 # WSL Setup (Assumes Python is already installed)
 - Install google-chrome binary file (Linux) and save it to `usr/bin`.
