@@ -23,6 +23,15 @@ This config.json should be in the format
     "chat_url": ""
 }
 ```
+Eg
+``` json
+{
+    "username": "fakeemail@gmail.com"
+    "password": "fJvy28a33M"
+    "chat_url": "https://www.facebook.com/messages/t/1"
+}
+```
+
 2. Create a reminder.txt file with the reminder you want to send.
 3. Run `python3 friendly_reminder.py [n]`
     - Where n is the number of reminders to send
