@@ -16,7 +16,7 @@ As of 23/12/23, these instructions worked for me.
 [ChromeDriver Download](https://chromedriver.chromium.org/downloads)
 
 # Usage
-1. Create a config.json in the root directory.
+1. Create a `config.json` in the root directory.
 This config.json should be in the format
 ``` json
 {
@@ -34,7 +34,7 @@ Eg
 }
 ```
 
-2. Create a reminder.txt file with the reminder you want to send.
+2. Create a `reminder.txt` file with the reminder you want to send.
 3. Run `python3 friendly_reminder.py [n]`
     - Where n is the number of reminders to send
 
