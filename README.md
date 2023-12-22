@@ -11,7 +11,7 @@ A Selenium script that will send one (or more than one) "friendly reminder(s)" t
 
 As of 23/12/23, these instructions worked for me.
 <br/>
-[Guide](https://www.gregbrisebois.com/posts/chromedriver-in-wsl2/)
+[Instructions](https://www.gregbrisebois.com/posts/chromedriver-in-wsl2/)
 <br/>
 [WebDriver Download](https://chromedriver.chromium.org/downloads)
 
