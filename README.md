@@ -3,7 +3,6 @@ A Selenium script that will send one (or more than one) "friendly reminder(s)" t
 
 # WSL Setup (Assumes Python is already installed)
 - Install google-chrome binary file (Linux) and save it to `usr/bin`.
-    - [Link](https://chromedriver.chromium.org/downloads)
     - Can check by running `google-chrome --version`
 - Download the chromedriver binary file (Linux) and save it to `usr/bin/`.
     - Can check by running `chromedriver --version`
@@ -11,6 +10,7 @@ A Selenium script that will send one (or more than one) "friendly reminder(s)" t
 - Make sure `usr/bin` is in PATH.
 
 As of 23/12/23, these instructions worked for me.
+<br/>
 [Guide](https://www.gregbrisebois.com/posts/chromedriver-in-wsl2/)
 <br/>
 [WebDriver Download](https://chromedriver.chromium.org/downloads)
