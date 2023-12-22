@@ -13,7 +13,7 @@ As of 23/12/23, these instructions worked for me.
 <br/>
 [Instructions](https://www.gregbrisebois.com/posts/chromedriver-in-wsl2/)
 <br/>
-[WebDriver Download](https://chromedriver.chromium.org/downloads)
+[ChromeDriver Download](https://chromedriver.chromium.org/downloads)
 
 # Usage
 1. Create a config.json in the root directory.
