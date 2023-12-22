@@ -16,7 +16,7 @@ As of 23/12/23, these instructions worked for me.
 [ChromeDriver Download](https://chromedriver.chromium.org/downloads)
 
 # Usage
-1. Create a `config.json` in the root directory.
+1. Create a `config.json` file.
 This config.json should be in the format
 ``` json
 {
