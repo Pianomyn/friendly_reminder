@@ -7,8 +7,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-# Customise accordingly
-# TODO: Look into progamatically sequencing actions
 TIMEOUT_SHORT = 1
 TIMEOUT_LONG = 2
 
@@ -53,8 +51,11 @@ def go_to_chat(driver: Chrome, config: dict) -> None:
 def get_friendly_reminder(
     reminder_file_path: str = "./reminder.txt",
 ) -> list[str]:
-    with open(reminder_file_path) as fp:
-        return [line.strip("\n") for line in fp]
+    try:
+        with open(reminder_file_path) as fp:
+            return [line.strip("\n") for line in fp]
+    except IOError:
+        raise IOError(f"{reminder_file_path} does not exist")
 
 
 def send_friendly_reminders(
